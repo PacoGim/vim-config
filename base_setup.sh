@@ -34,6 +34,16 @@ echo "set smartcase" >> ~/.vimrc
 
 echo "set backup" >> ~/.vimrc
 
+echo "set autoindent" >> ~/.vimrc
+
+echo "set tabstop=6" >> ~/.vimrc
+
+echo "set shiftwidth=6" >> ~/.vimrc
+
+echo "let g:user42 = 'your_username'" >> ~/.vimrc
+
+echo "let g:mail42 = 'your_username@student.42.fr'" >> ~/.vimrc
+
 echo "set laststatus=2" >> ~/.vimrc
 
 echo "set statusline=" >> ~/.vimrc
