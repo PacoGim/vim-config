@@ -1,3 +1,7 @@
+#!/bin/bash
+echo Enter your 42 student login for the header, please:
+read varname
+
 mkdir -p ~/.vim/pack/themes/start && cd ~/.vim/pack/themes/start && git clone https://github.com/dracula/vim.git dracula
 
 touch ~/.vimrc
@@ -8,44 +12,46 @@ echo 'function! GitBranch()\n\treturn system("git rev-parse --abbrev-ref HEAD 2>
 
 echo "function! StatuslineGit()\n\tlet l:branchname = GitBranch()\n\treturn strlen(l:branchname) > 0?'  '.l:branchname.' ':''\nendfunction\n" >> ~/.vimrc
 
-echo "syntax enable" >> ~/.vimrc
+echo "let g:mail42 = '$varname@student.42.fr'" >> ~/.vimrc
+echo "let g:user42 = '$varname'" >> ~/.vimrc
 
-echo "colorscheme dracula" >> ~/.vimrc
+cat >> ~/.vimrc << 'EOL'
+colorscheme dracula
+syntax enable
 
-echo "set number" >> ~/.vimrc
+set belloff=all
+set novisualbell
+set visualbell t_vb=
 
-echo "set scrolloff=20" >> ~/.vimrc
+set number
+set cursorline
+set scrolloff=20
 
-echo "set cursorline" >> ~/.vimrc
+set shiftwidth=6
+set tabstop=6
+set autoindent
 
-echo "set showcmd" >> ~/.vimrc
+set laststatus=2
+set statusline=
+set statusline=%F%{StatuslineGit()}%m%r%h%w%=\ (Time:\ %{strftime(\'%H:%M\')})\ [%Y]\ [%03l,%03v]\ [%l/%L]
 
-echo "set showmode" >> ~/.vimrc
+set completeopt=menuone,longest,preview
+set smartcase
+set ignorecase
+set incsearch
+set hlsearch
+set showmatch
+set showmode
+set showcmd
 
-echo "set showmatch" >> ~/.vimrc
+set backup
 
-echo "set hlsearch" >> ~/.vimrc
-
-echo "set incsearch" >> ~/.vimrc
-
-echo "set ignorecase" >> ~/.vimrc
-
-echo "set smartcase" >> ~/.vimrc
-
-echo "set backup" >> ~/.vimrc
-
-echo "set autoindent" >> ~/.vimrc
-
-echo "set tabstop=6" >> ~/.vimrc
-
-echo "set shiftwidth=6" >> ~/.vimrc
-
-echo "let g:user42 = 'your_username'" >> ~/.vimrc
-
-echo "let g:mail42 = 'your_username@student.42.fr'" >> ~/.vimrc
-
-echo "set laststatus=2" >> ~/.vimrc
-
-echo "set statusline=" >> ~/.vimrc
-
-echo "set statusline=%F%{StatuslineGit()}%m%r%h%w%=\ (Time:\ %{strftime(\'%H:%M\')})\ [%Y]\ [%03l,%03v]\ [%l/%L]" >> ~/.vimrc
+let mapleader = ","
+nnoremap <S-s> <Esc>:m+1 <CR>
+nnoremap <S-w> <Esc>:m-2 <CR>
+vnoremap <S-s> :m '>+1<CR>
+vnoremap <S-w> :m-2<CR>
+nnoremap <Leader>rws :%s:\s\+$::<CR>:let @/=''<CR>
+nnoremap <C-s> :w<CR>
+inoremap <M-Space> <C-n>
+EOL
