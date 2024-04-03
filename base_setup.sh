@@ -22,10 +22,13 @@ syntax enable
 set belloff=all
 set novisualbell
 set visualbell t_vb=
+set list lcs=tab:·⁖,trail:¶
+set nolist
 
 set number
 set cursorline
 set scrolloff=20
+set colorcolumn=80
 
 set shiftwidth=6
 set tabstop=6
@@ -54,4 +57,5 @@ vnoremap <S-w> :m-2<CR>
 nnoremap <Leader>rws :%s:\s\+$::<CR>:let @/=''<CR>
 nnoremap <C-s> :w<CR>
 inoremap <M-Space> <C-n>
+nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <Bar> :%s/^\ \+// <CR>
 EOL
