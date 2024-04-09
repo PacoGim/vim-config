@@ -4,6 +4,8 @@ read varname
 
 mkdir -p ~/.vim/pack/themes/start && cd ~/.vim/pack/themes/start && git clone https://github.com/dracula/vim.git dracula
 
+mkdir ~/.vim_backup_files
+
 touch ~/.vimrc
 
 echo "if v:version < 802\n\tpackadd! dracula\nendif\n" > ~/.vimrc
@@ -48,6 +50,7 @@ set showmode
 set showcmd
 
 set backup
+set backupdir=~/.vim_backup_files
 
 let mapleader = ","
 nnoremap <S-s> <Esc>:m+1 <CR>
