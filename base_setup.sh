@@ -1,4 +1,3 @@
-#!/bin/bash
 echo Enter your 42 student login for the header, please:
 read varname
 
@@ -61,4 +60,14 @@ nnoremap <Leader>rws :%s:\s\+$::<CR>:let @/=''<CR>
 nnoremap <C-s> :w<CR>
 inoremap <M-Space> <C-n>
 nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <Bar> :%s/^\ \+// <CR>
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
 EOL
