@@ -17,7 +17,6 @@ echo "let g:mail42 = '$varname@student.42.fr'" >> ~/.vimrc
 echo "let g:user42 = '$varname'" >> ~/.vimrc
 
 cat >> ~/.vimrc << 'EOL'
-colorscheme dracula
 syntax enable
 
 set belloff=all
@@ -70,4 +69,5 @@ noremap <leader>7 7gt
 noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
+au VimEnter * colorscheme dracula
 EOL
